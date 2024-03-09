@@ -31,11 +31,11 @@ const videoSchema=new Schema({
         default:0,
 
     },
-    view:{
-        type:Number,
-        default:0,
+    // view:{
+    //     type:Number,
+    //     default:0,
 
-    },
+    // },
     isPublished:{
         type:Boolean,
         default:true,
