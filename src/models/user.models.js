@@ -70,17 +70,17 @@ UserSchema.method.generateAccessToken=function(){
         }
     )
 }
-// UserSchema.method.generateRefreshToken=function(){
-//     return Jwt.sign(
-//         {
-//             _id:this._id,
-//             email:this.email,
-//             userName:this.userName,
-//             fullName:this.fullName
-//         },
-//         process.env.REFRESH_TOKEN_SECRET,{
-//             expiresIn:process.env.REFRESH_TOKEN_EXPIRY
-//         }
-//     )
-// }
+UserSchema.method.generateRefreshToken=function(){
+    return Jwt.sign(
+        {
+            _id:this._id,
+            email:this.email,
+            userName:this.userName,
+            fullName:this.fullName
+        },
+        process.env.REFRESH_TOKEN_SECRET,{
+            expiresIn:process.env.REFRESH_TOKEN_EXPIRY
+        }
+    )
+}
 export const User= mongoose.model("User",UserSchema)
