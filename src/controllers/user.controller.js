@@ -126,8 +126,8 @@ const loginUser = asyncHandler( async(req,res) =>{
 const logoutUser=asyncHandler(async (req, res)=>{
     User.findByIdAndUpdate(
         req.user._id,{
-            $set:{
-                refreshToken:undefined
+            $unset:{
+                refreshToken:1
             },
         },
         {
@@ -380,4 +380,19 @@ const getWatchHistory = asyncHandler(async(req, res)=>{
 
     return res.status(200).json(new ApiResponse(200,user[0].watchHistory, "watch history fetched successfully"))
 })
-export {registerUser, loginUser,logoutUser,refreshAccessToken,changeCurrentPassword,getCurrentUser, updateAccountDatails, updateUserAvatar, updateCoverImage,getUserChannelProfile, getWatchHistory} 
+
+
+
+export {
+    registerUser, 
+    loginUser,
+    logoutUser,
+    refreshAccessToken,
+    changeCurrentPassword,
+    getCurrentUser, 
+    updateAccountDatails, 
+    updateUserAvatar, 
+    updateCoverImage,
+    getUserChannelProfile,
+    getWatchHistory
+    } 
